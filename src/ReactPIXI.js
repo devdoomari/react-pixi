@@ -368,10 +368,10 @@ var PIXIStage = React.createClass({
     const antialias = props.antialias ? props.antialias : false;
     const transparent = props.transparent ? props.transparent : false;
     const preserveDrawingBuffer = props.preserveDrawingBuffer ? props.preserveDrawingBuffer : false;
-    
-    this._pixirenderer = PIXI.autoDetectRenderer(props.width, props.height, 
+
+    this._pixirenderer = PIXI.autoDetectRenderer(props.width, props.height,
       {view:renderelement,
-       backgroundColor: backgroundColor, 
+       backgroundColor: backgroundColor,
        antialias: props.antialias,
        transparent: transparent,
        resolution: props.resolution,
@@ -442,6 +442,10 @@ var PIXIStage = React.createClass({
     }
     else if (typeof newProps.backgroundColor === "number") {
       this._pixirenderer.backgroundColor = newProps.backgroundColor;
+    }
+
+    if (typeof newProps.transparent === "boolean") {
+      this._pixirenderer.transparent = newProps.transparent;
     }
 
     //this.setApprovedDOMProperties(newProps);
